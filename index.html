@@ -63,29 +63,28 @@
         </div>
       </div>
 
-      <div class="col col-lg-8">
-        <div class="row finfo">
+      <div class="col col-lg-8" id="app">
+        <div class="row finfo" v-for="ticket in tickets">
           <ul class="wrapper">
             <li><img src="img/turkish.png" alt="" class="turkish"></li>
             <li><button class="btn btnbuy">
-                Купить за
+                Купить <br> за {{ ticket.price }} руб.
                 </button></li>
           </ul>
           <ul>
-            <li><p class="time">19:00</p></li>
-            <li><p class="city">VVO, Владивосток</p></li>
-            <li><p class="date">9 окт 2018, Пт</p></li>
+            <li><p class="time">{{ticket.departure_time}}</p></li>
+            <li><p class="city">{{ticket.origin}}, {{ticket.origin_name}}</p></li>
+            <li><p class="date">{{ticket.departure_date}}</p></li>
           </ul>
           <div class="changes">
-            <p>пересадки</p>
+            <p>{{ticket.stops}} пересадки</p>
           </div>
           <ul class="arrtime">
-            <li><p class="time">19:00</p></li>
-            <li><p class="city">VVO, Владивосток</p></li>
-            <li><p class="date">9 окт 2018, Пт</p></li>
+            <li><p class="time">{{ticket.arrival_time}}</p></li>
+            <li><p class="city">{{ticket.destination}}, {{ticket.destination_name}}</p></li>
+            <li><p class="date">{{ticket.arrival_date}}</p></li>
           </ul>
         </div>
-        <div id="app"></div>
       </div>
 
 
@@ -97,8 +96,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
-  <script src="  https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alasql@0.4"></script>
   <script src="js/main.js"></script>
 
 
