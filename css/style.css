@@ -8,10 +8,34 @@ body {
 .menu {
   background-color: white;
   height: 331px;
-  width: 232px;
   border-radius: 7px;
   margin-bottom: 20px;
   margin-left: auto;
+}
+
+.currency {
+  color: #41a6f5;
+}
+
+.currency:hover {
+  background-color: #f2fcff;
+  border: 1px solid #64b5f5;
+  color: #64b5f5;
+}
+
+.active {
+  background-color: #64b5f5;
+  color: #f2f9fe;
+}
+
+.active:hover {
+  background-color: #64b5f5;
+  color: #f2f9fe;
+}
+
+.btn-group {
+  border: 1px solid #d2d5d6;
+  border-radius: 7px;
 }
 
 .pmenu {
@@ -19,12 +43,23 @@ body {
   text-transform: uppercase;
 }
 
+.form-check {
+  height: 36px;
+  line-height: 36px;
+  display: block;
+}
+.form-check:hover {
+  display: block;
+  background-color: #f1fcff;
+}
+
+
 .finfo {
   background-color: white;
   height: 161px;
   width: 566px;
   border-radius: 7px;
-  margin-left: 20px;
+  margin-left: 5px;
   margin-bottom: 20px;
 }
 .wrapper {
@@ -33,9 +68,10 @@ body {
   border-right: 1px solid #eceff1;
 }
 .turkish {
-  height: 27px;
+  height: 31px;
   margin-top: 28px;
   margin-bottom: 24px;
+  margin-left: 10px;
 }
 
 .btnbuy {
@@ -44,7 +80,7 @@ body {
   height: 56px;
   width: 160px;
   font-weight: bold;
-  margin-left: -25px;
+  margin-left: -21px;
 }
 
 .time {
@@ -73,5 +109,5 @@ li {
 
 
 .btn-group, .form-check {
-  margin-left: auto;
+  margin-left: 15px;
 }
