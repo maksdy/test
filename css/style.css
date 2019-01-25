@@ -1,14 +1,19 @@
 body {
   background-color: #f3f7fa;
 }
+
+.container{
+
+}
+
 .logo {
   margin-top: 55px;
   margin-bottom: 50px;
 }
 .menu {
   background-color: white;
-  height: 341px;
-  width: 500px;
+  height: 331px;
+  width: 232px;
   border-radius: 7px;
   margin-bottom: 20px;
   margin-left: auto;
@@ -18,6 +23,10 @@ body {
 
 .currency {
   color: #41a6f5;
+  font-size: 9px;
+  font-weight: 550;
+  padding-top: 11px;
+
 }
 
 .currency:hover {
@@ -40,10 +49,12 @@ body {
 .btn-group {
   border: 1px solid #d2d5d6;
   border-radius: 7px;
-  width: 255px;
+  width: 199px;
+  height: 40px;
 }
 
 .pmenu {
+  font-size: 9px;
   padding-top: 16px;
   text-transform: uppercase;
   font-weight: 550;
@@ -54,6 +65,8 @@ body {
 .form-check {
   height: 36px;
   line-height: 36px;
+  font-size: 10px;
+  color: #686868;
 
 }
 .form-check:hover {
@@ -75,7 +88,7 @@ body {
   height: 161px;
   width: 566px;
   border-radius: 7px;
-  margin-left: 5px;
+  margin-left: 33px;
   margin-bottom: 20px;
 }
 .wrapper {
@@ -97,6 +110,11 @@ body {
   width: 160px;
   font-weight: bold;
   margin-left: -21px;
+}
+
+.btnbuy:hover{
+  color: white;
+  background-color: #ff8124;
 }
 
 .time {

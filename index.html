@@ -16,53 +16,57 @@
   </div>
 
 <!-- side menu-->
-  <div class="container" id="app">
+<div class="container">
+  <div class="container d-flex justify-content-center" id="app">
     <div class="row">
-      <div class="col col-lg-3 menu">
-        <p class="pmenu">Валюта</p>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn active currency">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked=""> RUB
-          </label>
-          <label class="btn currency">
-            <input type="radio" name="options" id="option2" autocomplete="off"> USD
-          </label>
-          <label class="btn currency">
-            <input type="radio" name="options" id="option3" autocomplete="off"> EUR
-          </label>
-        </div>
-        <p class="pmenu">Количество пересадок</p>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="allStops">
+      <div class="col col-lg-3">
+        <div class="menu">
+          <p class="pmenu">Валюта</p>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn active currency">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked="" v-model="rubChosen"> RUB
+            </label>
+            <label class="btn currency">
+              <input type="radio" name="options" id="option2" autocomplete="off" v-model="usdChosen"> USD
+            </label>
+            <label class="btn currency">
+              <input type="radio" name="options" id="option3" autocomplete="off"> EUR
+            </label>
+          </div>
+          <p class="pmenu">Количество пересадок</p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="allStops">
             <label class="form-check-label" for="allStops">
             Все
             </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="zeroStops" v-model="zeroChecked">
-          <label class="form-check-label" for="zeroStops">
-          Без пересадок
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="oneStop" v-model="oneChecked">
-          <label class="form-check-label" for="oneStop">
-          1 пересадка
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="twpStops" v-model="twoChecked">
-          <label class="form-check-label" for="twoStops">
-          2 пересадки
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="threeStops" v-model="threeChecked">
-          <label class="form-check-label" for="threeStops">
-          3 пересадки
-          </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="zeroStops" v-model="zeroChecked">
+            <label class="form-check-label" for="zeroStops">
+            Без пересадок
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="oneStop" v-model="oneChecked">
+            <label class="form-check-label" for="oneStop">
+            1 пересадка
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="twpStops" v-model="twoChecked">
+            <label class="form-check-label" for="twoStops">
+            2 пересадки
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="threeStops" v-model="threeChecked">
+            <label class="form-check-label" for="threeStops">
+            3 пересадки
+            </label>
+          </div>
         </div>
       </div>
+
 <!-- flight info -->
       <div class="col col-lg-8" >
         <div class="row finfo" v-for="ticket in tickets" v-bind:class="{hidden: ticket.stops!=0 && zeroChecked ||
@@ -72,9 +76,12 @@
 
           <ul class="wrapper">
             <li><img src="img/turkish.png" alt="" class="turkish"></li>
-            <li><button class="btn btnbuy">
+            <li><button class="btn btnbuy" v-if="rubChosen">
                 Купить <br> за {{ ticket.price }} ₽
                 </button></li>
+                <button class="btn btnbuy" v-if="usdChosen">
+                    Купить <br> за {{ ticket.price*0.015 }} $
+                    </button></li>
           </ul>
           <ul>
             <li><p class="time">{{ticket.departure_time}}</p></li>
@@ -91,11 +98,11 @@
           </ul>
         </div>
       </div>
+</div>
+</div>
 
 
 
-
-  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
