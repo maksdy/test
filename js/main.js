@@ -12,8 +12,7 @@ var app = new Vue({
     oneChecked: false,
     twoChecked: false,
     threeChecked: false,
-    rubChosen: true,
-    usdChosen: false,
+    chosen: {value: 'rub'}
   },
   mounted() {
     var self = this

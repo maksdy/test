@@ -22,15 +22,15 @@
       <div class="col col-lg-3">
         <div class="menu">
           <p class="pmenu">Валюта</p>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn active currency">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked="" v-model="rubChosen"> RUB
+          <div class="btn-group btn-group-toggle">
+            <label class="btn currency" v-bind:class="{'active': chosen.value == 'rub'}">
+              <input type="radio" name="options" id="option1" autocomplete="off" value="rub" v-model="chosen.value"> RUB
             </label>
-            <label class="btn currency">
-              <input type="radio" name="options" id="option2" autocomplete="off" v-model="usdChosen"> USD
+            <label class="btn currency" v-bind:class="{'active': chosen.value == 'usd'}">
+              <input type="radio" name="options" id="option2" autocomplete="off" value="usd" v-model="chosen.value"> USD
             </label>
-            <label class="btn currency">
-              <input type="radio" name="options" id="option3" autocomplete="off"> EUR
+            <label class="btn currency" v-bind:class="{'active': chosen.value == 'eur'}">
+              <input type="radio" name="options" id="option3" autocomplete="off" value="eur" v-model="chosen.value"> EUR
             </label>
           </div>
           <p class="pmenu">Количество пересадок</p>
@@ -76,12 +76,15 @@
 
           <ul class="wrapper">
             <li><img src="img/turkish.png" alt="" class="turkish"></li>
-            <li><button class="btn btnbuy" v-if="rubChosen">
+            <li><button class="btn btnbuy" v-if="chosen.value=='rub'">
                 Купить <br> за {{ ticket.price }} ₽
                 </button></li>
-                <button class="btn btnbuy" v-if="usdChosen">
+                <button class="btn btnbuy" v-if="chosen.value=='usd'">
                     Купить <br> за {{ ticket.price*0.015 }} $
-                    </button></li>
+                </button>
+                <button class="btn btnbuy" v-if="chosen.value=='eur'">
+                    Купить <br> за {{ ticket.price*0.0135 }} €
+                </button>
           </ul>
           <ul>
             <li><p class="time">{{ticket.departure_time}}</p></li>
