@@ -15,7 +15,8 @@
     </div>
   </div>
 
-  <div class="container">
+<!-- side menu-->
+  <div class="container" id="app">
     <div class="row">
       <div class="col col-lg-3 menu">
         <p class="pmenu">Валюта</p>
@@ -32,39 +33,43 @@
         </div>
         <p class="pmenu">Количество пересадок</p>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck">
-            <label class="form-check-label" for="defaultCheck">
+          <input class="form-check-input" type="checkbox" value="" id="allStops">
+            <label class="form-check-label" for="allStops">
             Все
             </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
+          <input class="form-check-input" type="checkbox" value="" id="zeroStops" v-model="zeroChecked">
+          <label class="form-check-label" for="zeroStops">
           Без пересадок
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-          <label class="form-check-label" for="defaultCheck2">
+          <input class="form-check-input" type="checkbox" value="" id="oneStop" v-model="oneChecked">
+          <label class="form-check-label" for="oneStop">
           1 пересадка
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-          <label class="form-check-label" for="defaultCheck3">
+          <input class="form-check-input" type="checkbox" value="" id="twpStops" v-model="twoChecked">
+          <label class="form-check-label" for="twoStops">
           2 пересадки
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-          <label class="form-check-label" for="defaultCheck4">
+          <input class="form-check-input" type="checkbox" value="" id="threeStops" v-model="threeChecked">
+          <label class="form-check-label" for="threeStops">
           3 пересадки
           </label>
         </div>
       </div>
+<!-- flight info -->
+      <div class="col col-lg-8" >
+        <div class="row finfo" v-for="ticket in tickets" v-bind:class="{hidden: ticket.stops!=0 && zeroChecked ||
+                                                                                ticket.stops!=1 && oneChecked ||
+                                                                                ticket.stops!=2 && twoChecked ||
+                                                                                ticket.stops!=3 && threeChecked }">
 
-      <div class="col col-lg-8" id="app">
-        <div class="row finfo" v-for="ticket in tickets">
           <ul class="wrapper">
             <li><img src="img/turkish.png" alt="" class="turkish"></li>
             <li><button class="btn btnbuy">
@@ -77,7 +82,7 @@
             <li><p class="date">{{ticket.departure_date}}</p></li>
           </ul>
           <div class="changes">
-            <p>{{ticket.stops}} пересадки</p>
+            <p>{{ticket.stops}} пересадки<br><img src="img/fly.png" class="plane"></p>
           </div>
           <ul class="arrtime">
             <li><p class="time">{{ticket.arrival_time}}</p></li>

@@ -18,7 +18,6 @@ body {
 
 .currency {
   color: #41a6f5;
-
 }
 
 .currency:hover {
@@ -131,8 +130,15 @@ li {
   list-style-type: none;
 }
 
-
-
 .btn-group {
   margin-left: 15px;
+}
+.hidden {
+  display: none;
+}
+
+.plane {
+  display: inline;
+  width: 90px;
+  margin-left: -12px;
 }
